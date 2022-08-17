@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href=
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity=
+  "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+      <script src=
+  "https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity=
+  "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous">
+      </script>
+
+      <script src=
+  "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity=
+  "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous">
+      </script>
+
+      <script src=
+  "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity=
+  "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous">
+      </script>
+  <title>MEET</title>
+  <style>
+    #Parent{
+      margin:1rem;
+      padding:2rem 2rem;
+      text-align: center;
+    }
+    #selectRoom{
+      vertical-align: middle;
+    }
+    #consultingRoom{
+      display: inline-block;
+      width: 100%;
+      border:1px
+      padding:1rem 1rem;
+      align-content: center;
+      vertical-align: middle;
+    }
+    #lv{
+      display: inline-block;
+      border:none;
+
+    }
+    #rv{
+      display: inline-block;
+      border: none;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="first_layer navbar navbar-expand-lg navbar-dark" style="width: 100%;background-color: #aeaeae;">
+    <div class="container-fluid">
+      <button class="btn btn-outline-secondary ms-2 mt-2" type="button" name="button" id="btn" >btn</button>
+    </div>
+    <div id= 'selectRoom' class="mt-2 container-fluid d-flex justify-content-end" style="display: inline-block;float: right;">
+      <label for="room" class="me-2" style="color: #525252;">Type Room Name: </label>
+
+        <input type="text" class="me-2 in" id='roomNumber' style="width:20vw; background-color: #cacaca;">
+        <button id='goRoom'  class="btn btn-outline-success">Go</button>
+    </div>
+  </div>
+  <div class="second_layer container-fuild  p-2" style="height: 54vh;width:100%;background-color: #cacaca;">
+    <div id="lv" class="bg-secondary" style="border-radius: 10px;border-style: solid;border-width: 2px;" >
+        <video autoplay id="localVideo" width="400px" height="290px" style="margin-left: 5vw ;"></video>
+        <div class="p-1" style="float:right;border-radius: 6px;font-size: 0.56em;color:white">Person_1</div>
+
+    </div>
+    <div id="rv" class="bg-secondary" style="border-radius:10px;border-style: solid;border-width: 2px;">
+        <video autoplay id="remoteVideo" width="400px" height="290px" style="margin-left: 5vw;"></video>
+        <div class="p-1" style="float:right;border-radius: 6px;font-size: 0.56em; color:white">Person_2</div>
+    </div>
+  </div>
+  <div class="third_layer d-flex" style="float:right;width: 100%;">
+    <div class="notes" >
+      <nav class="navbar navbar-expand-lg
+                navbar-light bg-success">
+        <a class="navbar-brand" href="#">
+            <p style="font-size: 30px;">
+                NOTES :⤵️
+            </p>
+
+        </a>
+    </nav>
+
+    <div class="container my-3" style="height:300px;width:300px">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    Add a Note
+
+                </h5>
+                <div class="form-group">
+                    <textarea class="form-control"
+                        id="addTxt" rows="3">
+                    </textarea>
+                </div>
+                <button class="btn btn-primary"
+                    id="addBtn" style=
+                    "background-color:green">
+                    Add Note
+                </button>
+            </div>
+        </div>
+        <hr>
+        <h1>Your Notes</h1>
+        <hr>
+
+        <div id="notes" class=
+            "row container-fluid" style="overflow:scroll;height:200px">
+        </div>
+    </div>
+
+    <script src="notes.js"></script>
+
+    </div>
+    <div class="chats container-fluid me-0" style="max-width: 50vw;" >
+      <h6 id="h1"></h6>
+
+    <div id="connected_people" class="container">
+      <div>Connection:</div>
+
+    </div>
+      <div id="message_container" class="scroll" style="overflow:scroll;height:25vh">
+        <center><div>Chats</div></center>
+      </div>
+      <center>
+        <input id="send" type="text" placeholder="enter the message" value="">
+        <button  type="submit" name="button" onclick="send_click()">SEND</button>
+      </center>
+    <div>
+
+
+    </div>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+      if(document.getElementById('localVideo').srcObject==null){
+        document.getElementById('localVideo')
+      }
+  </script>
+  <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
